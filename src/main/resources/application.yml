@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: uc-demo
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
+    lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
+    instance-id: demo-8257.com  # 在信息列表时显示主机名称
+    prefer-ip-address: true     # 访问的路径变为IP地址
+    leaseRenewalIntervalInSeconds: 10
+  client:
+    service-url:
+      defaultZone: http://test-eureka1.vipkid.com.cn:1111/eureka/
+feign:
+  hystrix:
+    enabled: true
+
+turbine:
+  app-config: demo
+  cluster-name-expression: "default"
+  combine-host-port: true
+  aggregator:
+    # 指定聚合哪些集群，多个使用”,”分割，默认为default。可使用http://.../turbine.stream?cluster={clusterConfig之一}访问
+    clusterConfig: default
+  clusterNameExpression: demo
