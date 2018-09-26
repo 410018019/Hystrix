@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableTurbine
 @EnableHystrixDashboard
 @EnableFeignClients(basePackages={"com.example.demo.service"})
-@ComponentScan("com.example.demo")
+@ComponentScan(basePackages = "com.example.demo")
 public class DemoApplication {
 
 	@Bean
